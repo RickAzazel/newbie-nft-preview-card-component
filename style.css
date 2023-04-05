@@ -1,0 +1,192 @@
+*, ::after, ::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+	font-family: Outfit, sans-serif;
+}
+
+body {
+	font-size: 1.8rem;
+	color: rgb(139, 172, 218);
+}
+
+/*all margins bottom*/
+.card-img,
+.card-title,
+.card-text,
+.card-body {
+	margin-bottom: 20px;
+}
+
+/* base :before configurations */
+.coin-amount::before,
+.days-counter::before,
+.card-profile::before,
+.img-link::before {
+	content: '';
+	display: block;
+	position: relative;
+}
+
+.wrapper {
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	background: rgb(13, 25, 43);
+	padding: 40px 20px;
+}
+
+.card-container {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	max-width: 380px;
+	padding: 20px;
+	border-radius: 10px;
+	background: rgb(20, 37, 61);
+	z-index: 100;
+}
+
+.card-img {
+	height: 350px;
+	width: 100%;
+	position: relative;
+	background: url('images/image-equilibrium.jpg') center;
+	background-size: cover;
+	border-radius: 10px;
+}
+
+.img-link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 255, 247, 0.473);
+	opacity: 0;
+	transition: .3s;
+	border-radius: 10px;
+}
+
+.img-link::before {
+	width: 50px;
+	height: 50px;
+	background: url('/images/icon-view.svg');
+}
+
+.card-img:hover .img-link {
+	opacity: 1;
+}
+
+.card-img:hover + .img-link {
+	display: block;
+}
+
+.card-title a {
+	font-weight: 500;
+	color: white;
+	text-decoration: none;
+}
+
+.card-title a:hover {
+	color: rgb(0, 255, 247);
+}
+
+.card-text {
+	font-weight: 300;
+	line-height: 2.8rem;
+}
+
+.card-body {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.coin-amount {
+	color: rgb(0, 255, 247);
+	padding-left: 20px;
+}
+
+.coin-amount::before {
+	width: 20px;
+	height: 20px;
+	left: -20px;
+	top: 23px;
+	background: url('/images/icon-ethereum.svg') no-repeat;
+}
+
+.days-counter::before {
+	width: 20px;
+	height: 20px;
+	left: -25px;
+	top: 23px;
+	background: url('/images/icon-clock.svg') no-repeat;
+}
+
+.card-profile {
+	display: flex;
+	flex-wrap: wrap;
+	border-top: 1px solid rgb(47, 65, 91);
+	padding: 20px 0 5px 15px;
+	align-items: center;
+}
+
+.card-profile a {
+	padding-left: 4px;
+	color: white;
+	text-decoration: none;
+}
+
+.card-profile a:hover {
+	color: rgb(0, 255, 247);
+}
+
+.card-profile::before {
+	width: 40px;
+	height: 40px;
+	background: url('/images/image-avatar.png') no-repeat;
+	background-position: 0 0;
+	background-size: contain;
+	border: 1px solid white;
+	border-radius: 50%;
+	left: -15px;
+}
+
+@media (max-width: 480px) {
+	.card-img {
+		height: 270px;
+	}
+
+	html {
+		font-size: 58%;
+	}
+
+	.card-profile::before {
+		width: 30px;
+		height: 30px;
+		
+	}
+}
+
+@media (max-width: 300px) {
+	html {
+		font-size: 48%;
+	}
+
+	.card-img {
+		height: 240px;
+	}
+	
+	.card-text {
+		margin: 0;
+	}
+}
