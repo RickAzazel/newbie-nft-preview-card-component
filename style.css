@@ -1,4 +1,6 @@
-*, ::after, ::before {
+*,
+::after,
+::before {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
@@ -14,24 +16,6 @@ body {
 	color: rgb(139, 172, 218);
 }
 
-/*all margins bottom*/
-.card-img,
-.card-title,
-.card-text,
-.card-body {
-	margin-bottom: 20px;
-}
-
-/* base :before configurations */
-.coin-amount::before,
-.days-counter::before,
-.card-profile::before,
-.img-link::before {
-	content: '';
-	display: block;
-	position: relative;
-}
-
 .wrapper {
 	display: flex;
 	height: 100vh;
@@ -41,7 +25,7 @@ body {
 	padding: 40px 20px;
 }
 
-.card-container {
+.card {
 	display: flex;
 	position: relative;
 	flex-direction: column;
@@ -52,16 +36,26 @@ body {
 	z-index: 100;
 }
 
-.card-img {
+.logo {
 	height: 350px;
 	width: 100%;
 	position: relative;
 	background: url('images/image-equilibrium.jpg') center;
 	background-size: cover;
 	border-radius: 10px;
+	margin-bottom: 20px;
 }
 
-.img-link {
+.link {
+	text-decoration: none;
+	color: white;
+}
+
+.link:hover {
+	color: rgb(0, 255, 247);
+}
+
+.logo__link {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -72,67 +66,69 @@ body {
 	height: 100%;
 	background: rgba(0, 255, 247, 0.473);
 	opacity: 0;
-	transition: .3s;
+	transition: all .7s ease;
 	border-radius: 10px;
 }
 
-.img-link::before {
+.logo__link::before {
+	content: '';
+	display: block;
+	position: relative;
 	width: 50px;
 	height: 50px;
-	background: url('/images/icon-view.svg');
+	background: url('./images/icon-view.svg');
 }
 
-.card-img:hover .img-link {
+.logo:hover .logo__link {
 	opacity: 1;
 }
 
-.card-img:hover + .img-link {
-	display: block;
+.title {
+	font-weight: 600;
+	margin-bottom: 20px;
 }
 
-.card-title a {
-	font-weight: 500;
-	color: white;
-	text-decoration: none;
-}
-
-.card-title a:hover {
-	color: rgb(0, 255, 247);
-}
-
-.card-text {
+.text {
 	font-weight: 300;
 	line-height: 2.8rem;
+	margin-bottom: 20px;
 }
 
-.card-body {
+.item {
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	margin-bottom: 20px;
 }
 
-.coin-amount {
+.item__coin-amount {
 	color: rgb(0, 255, 247);
 	padding-left: 20px;
 }
 
-.coin-amount::before {
+.item__coin-amount::before {
+	content: '';
+	display: block;
+	position: relative;
 	width: 20px;
 	height: 20px;
 	left: -20px;
 	top: 23px;
-	background: url('/images/icon-ethereum.svg') no-repeat;
+	background: url('./images/icon-ethereum.svg') no-repeat;
 }
 
-.days-counter::before {
+.item__days-counter::before {
+	content: '';
+	display: block;
+	position: relative;
 	width: 20px;
 	height: 20px;
 	left: -25px;
 	top: 23px;
-	background: url('/images/icon-clock.svg') no-repeat;
+	background: url('./images/icon-clock.svg') no-repeat;
 }
 
-.card-profile {
+.profile {
 	display: flex;
 	flex-wrap: wrap;
 	border-top: 1px solid rgb(47, 65, 91);
@@ -140,20 +136,13 @@ body {
 	align-items: center;
 }
 
-.card-profile a {
-	padding-left: 4px;
-	color: white;
-	text-decoration: none;
-}
-
-.card-profile a:hover {
-	color: rgb(0, 255, 247);
-}
-
-.card-profile::before {
+.profile::before {
+	content: '';
+	display: block;
+	position: relative;
 	width: 40px;
 	height: 40px;
-	background: url('/images/image-avatar.png') no-repeat;
+	background: url('./images/image-avatar.png') no-repeat;
 	background-position: 0 0;
 	background-size: contain;
 	border: 1px solid white;
@@ -161,8 +150,13 @@ body {
 	left: -15px;
 }
 
+.profile__link {
+	padding-left: 4px;
+}
+
+/* mobile */
 @media (max-width: 480px) {
-	.card-img {
+	.logo {
 		height: 270px;
 	}
 
@@ -170,10 +164,9 @@ body {
 		font-size: 58%;
 	}
 
-	.card-profile::before {
+	.profile::before {
 		width: 30px;
 		height: 30px;
-		
 	}
 }
 
@@ -182,11 +175,11 @@ body {
 		font-size: 48%;
 	}
 
-	.card-img {
+	.logo {
 		height: 240px;
 	}
-	
-	.card-text {
+
+	.text {
 		margin: 0;
 	}
 }
